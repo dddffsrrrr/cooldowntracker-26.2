@@ -7,7 +7,6 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.ItemStack;
@@ -89,8 +88,8 @@ public final class CooldownTracker {
 	public static void onEntityLoad(Entity entity, ClientLevel level) {
 		CooldownType type;
 		String typeId = BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType()).getPath();
-   		if (typeId.equals("ender_pearl")) type = CooldownType.ENDER_PEARL;
-   		else if (typeId.equals("wind_charge")) type = CooldownType.WIND_CHARGE;
+		if (typeId.equals("ender_pearl")) type = CooldownType.ENDER_PEARL;
+		else if (typeId.equals("wind_charge")) type = CooldownType.WIND_CHARGE;
 		else return;
 
 		Minecraft mc = Minecraft.getInstance();
