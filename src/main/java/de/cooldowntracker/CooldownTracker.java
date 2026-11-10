@@ -88,8 +88,9 @@ public final class CooldownTracker {
 	/** Wird aufgerufen, wenn auf dem Client ein neues Entity geladen wird. */
 	public static void onEntityLoad(Entity entity, ClientLevel level) {
 		CooldownType type;
-		if (entity.getType() == EntityType.ENDER_PEARL) type = CooldownType.ENDER_PEARL;
-		else if (entity.getType() == EntityType.WIND_CHARGE) type = CooldownType.WIND_CHARGE;
+		String typeId = BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType()).getPath();
+   		if (typeId.equals("ender_pearl")) type = CooldownType.ENDER_PEARL;
+   		else if (typeId.equals("wind_charge")) type = CooldownType.WIND_CHARGE;
 		else return;
 
 		Minecraft mc = Minecraft.getInstance();
